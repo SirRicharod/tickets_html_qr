@@ -5,7 +5,7 @@ include 'includes/header.php'
   <div class="row">
     <div class="col">
         <h1>Contact</h1>
-         <p>Hello <?php echo $_SESSION['name'] ?>
+         <p>Hello <?php echo $_SESSION['email'] ?>
     </div>
   </div>
 </div>
