@@ -37,9 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     // Insert user into database with HASHED password
     // Using prepared statement is better, but following previous style with mysqli_query for simplicity/consistency if preferred, 
     // but hashing is the key requirement.
-    $stmt = $conn->prepare("INSERT INTO users (name, email, password, profile_pic) VALUES (?, ?, ?, ?)");
-
-    if ($stmt && $stmt->bind_param("ssss", $name, $email, $hashed_password, $profile_pic_path) && $stmt->execute()) {
+    $stmt = $conn->prepare("INSERT INTO users (name, email, password, role, profile_pic) VALUES (?, ?, ?, ?, ?)");
+    $client = "client";
+    if ($stmt && $stmt->bind_param("sssss", $name, $email, $hashed_password, $client, $profile_pic_path) && $stmt->execute()) {
         $message = "New user created successfully!";
         // Store in session as requested ("use $_SESSION to store the user details")
         $_SESSION['user_id'] = $conn->insert_id;
