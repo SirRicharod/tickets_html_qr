@@ -6,9 +6,10 @@ include 'includes/header.php'
   <div class="row">
     <div class="col">
       <h1>Order</h1>
+      <img src="assets/images/sf.jpg" class="imgoffer">
       <?php if (isset($_SESSION['email'])) { ?>
-        <p>Hello <?php echo $_SESSION['email'] ?></p>
-        <h2>Please order your tickets here</h2>
+        <h2>Hello <?php echo $_SESSION['name'] ?>,</h2>
+        <p>Please order your tickets here! The tickets wil also be sent to you via this email adres: <b><?php echo $_SESSION['email'] ?></b></p>
         <p>Amount EUR 45 per ticket</p>
         <form action="orderprocess.php" method="post">
           <input type="number" class="form-control" name="amount">

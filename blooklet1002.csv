@@ -1,0 +1,31 @@
+Question #,Question Text,Answer 1,Answer 2,Answer 3,Answer 4,Time Limit,Correct Answer
+1,How do you install Endroid QR Code library,composer require endroid qr-code,npm install endroid qr,apt get install qrcode,pip install endroid,20,1
+2,What class creates a QR code in Endroid,QrCode,QRGenerator,CodeGenerator,QrMaker,20,1
+3,What method creates a QR code instance,QrCode create,QrCode make,QrCode generate,QrCode new,20,1
+4,What writer class generates PNG QR codes,PngWriter,ImageWriter,QrPngWriter,PngGenerator,20,1
+5,How do you get the QR code as a string,Use getString method,Use toString method,Use output method,Use render method,20,1
+6,How do you embed QR code in HTML,Use base64 encoded data URI,Use direct file path,Use external URL only,Use JavaScript,25,1
+7,What PHP function reads a CSV file into array,fgetcsv,read csv,csv read,import csv,20,1
+8,What function opens a file for reading in PHP,fopen,open file,file open,read file,20,1
+9,What mode opens a file for reading only,r,w,a,x,20,1
+10,What mode opens file for writing and creates if not exists,w,r,a,c,20,1
+11,What function writes an array to CSV,fputcsv,write csv,csv write,export csv,20,1
+12,What function closes an open file handle,fclose,close file,file close,end file,20,1
+13,What delimiter is most common in CSV files,Comma,Semicolon,Tab,Pipe,20,1
+14,How do you skip the header row when reading CSV,Start loop from index 1,Use skip header option,Use no header flag,Use header false,25,1
+15,What function converts CSV string to array,str getcsv,csv to array,explode csv,parse csv,20,1
+16,How do you set CSV delimiter in fputcsv,Pass as third parameter,Pass as second parameter,Use setDelimiter method,Use delimiter option,25,1
+17,What headers force CSV download in browser,Content Type and Content Disposition,Content Type only,Download File header,Export CSV header,25,1
+18,In DOMPDF what must you call before stream,render,output,build,process,20,1
+19,What DOMPDF option enables remote images,enable remote,allow external,remote files,external images,25,1
+20,How do you encode image for DOMPDF,base64 encode with data URI,url encode,image encode,convert base64,25,1
+21,What DOMPDF function saves PDF to disk,Use output and file put contents,Use saveToDisk,Use writeFile,Use storePDF,25,1
+22,Can you use QR codes in DOMPDF PDFs,Yes with base64 encoding,No not supported,Only as external images,Only with plugin,25,1
+23,What is correct data URI format for PNG,data image png base64,data png base64,image png base64,png data base64,25,1
+24,How do you loop through CSV rows in PHP,Use while with fgetcsv,Use foreach on file,Use for with line count,Use map function,25,1
+25,What happens if you forget fclose after fopen,Memory leak or file lock,File gets deleted,Data gets corrupted,Nothing bad happens,25,1
+26,How do you create download link for CSV,Set headers and use readfile,Use download attribute only,Use CSV mime type only,JavaScript download only,25,1
+27,What encoding for CSV with special characters,UTF-8,ASCII,ISO 8859,Windows 1252,20,1
+28,In DOMPDF how do you set landscape orientation,setPaper with landscape parameter,setOrientation landscape,landscape true option,rotate 90 in CSS,25,1
+29,What does QrCode write method return,Result object with getString,String directly,Image resource,File path,25,1
+30,How do you validate CSV data before processing,Check each row with validation rules,Trust all input,Only check first row,Use validator library only,25,1

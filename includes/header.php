@@ -35,6 +35,11 @@ session_start();
         .btn-primary:hover {
             background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
         }
+        img.imgoffer {
+            border-radius: 16px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>

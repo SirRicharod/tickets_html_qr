@@ -1,8 +1,10 @@
 <?php
 include 'includes/header.php';
-$amount = $_POST['amount'];
+$amount_person = $_POST['amount'];
 $email = $_SESSION['email'];
-$total = $amount * 45;
+$amount_total = $amount_person * 45;
+
+
 ?>
 <div class="container">
     <div class="row">
