@@ -9,16 +9,16 @@
  */
 
 // SMTP Server Settings
-define('SMTP_HOST', 'smtp.gmail.com'); // Change to your SMTP server
-define('SMTP_PORT', 587); // 587 for TLS, 465 for SSL
-define('SMTP_ENCRYPTION', 'tls'); // 'tls' or 'ssl'
+define('SMTP_HOST', 'localhost'); // MailHog SMTP host
+define('SMTP_PORT', 1025); // MailHog SMTP port
+define('SMTP_ENCRYPTION', ''); // No encryption for MailHog
 
 // Email Account Credentials
-define('SMTP_USERNAME', 'your-email@gmail.com'); // Your email address
-define('SMTP_PASSWORD', 'your-app-password'); // Your email password or app password
+define('SMTP_USERNAME', ''); // Not required for MailHog
+define('SMTP_PASSWORD', ''); // Not required for MailHog
 
 // From Email Settings
-define('MAIL_FROM_ADDRESS', 'your-email@gmail.com'); // Sender email address
+define('MAIL_FROM_ADDRESS', 'no-reply@example.test'); // Sender email address
 define('MAIL_FROM_NAME', 'Ticket System'); // Sender name
 
 // Optional: BCC for order notifications
