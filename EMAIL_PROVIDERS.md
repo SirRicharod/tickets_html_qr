@@ -188,7 +188,7 @@ Common issues:
 
 **Good for:** Small sites, testing, personal projects
 
-### Transactional Services (SendGrid, Mailgun, SES)
+### Transactional Services (SendGrid, Mailgun, SES, Custom SMTP/COMBELL)
 ✅ High deliverability  
 ✅ Better spam score  
 ✅ Analytics and tracking  
