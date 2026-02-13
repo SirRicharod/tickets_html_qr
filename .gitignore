@@ -1,1 +1,4 @@
 vendor
+email_config.php
+assets/pdf/*.pdf
+*.log
