@@ -12,7 +12,7 @@
 // Include necessary files
 include 'includes/header.php';
 require 'includes/conn.php';
-require 'includes/crypto.php';
+require 'includes/helper.php';  // Our OpenSSL encrypt/decrypt functions
 
 // Import PHPMailer classes for sending emails
 use PHPMailer\PHPMailer\PHPMailer;
@@ -77,21 +77,11 @@ $stmt->close();
 // STEP 3: Generate PDF Ticket
 // ===============================================
 
-// echo $order_id;
-// encrypt my order_id so that it cannot be easily guessed or manipulated in the URL
-$key = getSecretKey();
-$nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
-$ciphertext = sodium_crypto_secretbox((string) $order_id, $nonce, $key);
+// Encrypt the order ID so it cannot be guessed in the URL
+// Uses our encryptId() function from helper.php (OpenSSL under the hood)
+$token = encryptId((string) $order_id);
 
-// echo "Ciphertext: " . base64_encode($ciphertext) . "\n";
-
-// decrypt the order_id to verify it works correctly
-$decrypted_order_id = sodium_crypto_secretbox_open($ciphertext, $nonce, $key);
-// echo "Decrypted Order ID: " . $decrypted_order_id . "\n";
-
-// i need to generate a qr that contains the url like so: check.php?id=encrypted_order_id
-$payload = $nonce . $ciphertext;
-$token = sodium_bin2base64($payload, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
+// Build the QR code URL: check.php?id=<encrypted_order_id>
 $qr_data = "http://localhost:8000/check.php?id=" . $token;
 $qrCode = new QrCode(
     data: $qr_data,
