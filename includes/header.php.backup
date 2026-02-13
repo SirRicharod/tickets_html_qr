@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ticket System</title>
+    <title>Ticket System - Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
@@ -166,18 +166,10 @@ session_start();
             color: #ff3b30;
         }
 
-        [data-theme="dark"] .alert-danger {
-            color: #ff6961;
-        }
-
         .alert-success {
             background: rgba(52, 199, 89, 0.1);
             border-color: rgba(52, 199, 89, 0.3);
             color: #34c759;
-        }
-
-        [data-theme="dark"] .alert-success {
-            color: #32d74b;
         }
 
         .card {
@@ -271,61 +263,20 @@ session_start();
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Ticket System</a>
+                <a class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link" href="index.php">Home</a>
-                        <a class="nav-link" href="about.php">About</a>
-                        <a class="nav-link" href="order.php">Order</a>
-                        <a class="nav-link" href="contact.php">Contact</a>
-                        <a class="nav-link" href="logout.php">Logout</a>
-                    </div>
+                <div class="navbar-nav">
+                    <a class="nav-link" href="index.php">Home</a>
+                    <a class="nav-link" href="about.php">About</a>
+                    <a class="nav-link" href="order.php">Order</a>
+                    <a class="nav-link" href="contact.php">Contact</a>
+                    <a class="nav-link" href="logout.php">Logout</a>
+                </div>
+                </div>
                 </div>
             </div>
         </nav>
     </div>
-
-    <!-- Dark Mode Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/>
-        </svg>
-        <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: none;">
-            <path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/>
-        </svg>
-    </button>
-
-    <script>
-        // Dark mode toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
-        const html = document.documentElement;
-
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', currentTheme);
-        updateIcons(currentTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const theme = html.getAttribute('data-theme');
-            const newTheme = theme === 'light' ? 'dark' : 'light';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateIcons(newTheme);
-        });
-
-        function updateIcons(theme) {
-            if (theme === 'dark') {
-                sunIcon.style.display = 'none';
-                moonIcon.style.display = 'block';
-            } else {
-                sunIcon.style.display = 'block';
-                moonIcon.style.display = 'none';
-            }
-        }
-    </script>
