@@ -31,9 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['name'] = $user['name'];
+            $_SESSION['role'] = $user['role'] ?? 'client'; // Store role, default to 'client' if not set
 
-            // Optional: Redirect to the home page or dashboard
-            header("Location: index.php");
+            // Redirect based on user role
+            if ($_SESSION['role'] === 'admin') {
+                header("Location: admin.php");
+            } else {
+                header("Location: order.php");
+            }
             exit(); // Stop script execution after redirect
         } else {
             // Password does not match
