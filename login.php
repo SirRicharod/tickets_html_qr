@@ -1,6 +1,7 @@
 <?php
-// Include the header which starts the session and provides HTML structure
-include 'includes/header.php';
+// Start session first before any output
+session_start();
+
 // Include the database connection file
 require 'includes/conn.php';
 
@@ -49,6 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "User not found.";
     }
 }
+
+// Include the header only AFTER processing logic (to allow redirects)
+include 'includes/header.php';
 ?>
 
 <div class="container mt-5">

@@ -9,8 +9,10 @@
  * 4. Displays success message
  */
 
+// Start session first
+session_start();
+
 // Include necessary files
-include 'includes/header.php';
 require 'includes/conn.php';
 require 'includes/helper.php';  // Our OpenSSL encrypt/decrypt functions
 
