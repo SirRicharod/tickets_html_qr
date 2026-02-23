@@ -8,6 +8,12 @@ require 'includes/conn.php';
 // Initialize message variable
 $message = "";
 
+// Optional one-time message from OAuth callback (stored in session)
+if (isset($_SESSION['auth_message'])) {
+    $message = $_SESSION['auth_message'];
+    unset($_SESSION['auth_message']);
+}
+
 // Check if the form is submitted via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize input
@@ -74,6 +80,12 @@ include 'includes/header.php';
                     <input type="password" class="form-control" name="password" id="password" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
+
+                <!-- Simple Google sign-in button for educational demo -->
+                <a href="google-login.php" class="btn btn-outline-dark w-100 mt-2">
+                    Sign in with Google
+                </a>
+
                 <div class="mt-3">
                     Not registered? <a href="index.php">Create an account</a>.
                 </div>

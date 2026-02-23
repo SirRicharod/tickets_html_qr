@@ -2,6 +2,7 @@
     "require": {
         "phpmailer/phpmailer": "^7.0",
         "dompdf/dompdf": "^3.1",
-        "endroid/qr-code": "^6.1"
+        "endroid/qr-code": "^6.1",
+        "google/apiclient": "^2.19"
     }
 }

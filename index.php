@@ -9,6 +9,13 @@ require 'includes/conn.php';
 
 // Handle Registration Logic
 $message = "";
+
+// Optional one-time message from OAuth callback (stored in session)
+if (isset($_SESSION['auth_message'])) {
+    $message = $_SESSION['auth_message'];
+    unset($_SESSION['auth_message']);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $email = $conn->real_escape_string($_POST['email']);
     $password = $_POST['password']; // Get raw password
@@ -184,6 +191,12 @@ $result = mysqli_query($conn, $sql);
                     </div>
                     <!-- Add name="register" to identify the action -->
                     <button type="submit" name="register" class="btn btn-primary">Submit</button>
+
+                    <!-- Simple Google register/sign-in button for educational demo -->
+                    <a href="google-login.php" class="btn btn-outline-dark w-100 mt-2">
+                        Register / Sign in with Google
+                    </a>
+
                     <p class="mt-3">Already have an account? <a href="login.php">Login here</a></p>
                 </form>
             </div>
