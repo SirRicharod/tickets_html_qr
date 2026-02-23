@@ -4,7 +4,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Dotenv\Dotenv;
 
-require './vendor/autoload.php';
 
 function exchangeCode($data, $apiUrl)
 {
