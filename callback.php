@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
