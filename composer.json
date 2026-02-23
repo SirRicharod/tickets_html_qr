@@ -3,6 +3,8 @@
         "phpmailer/phpmailer": "^7.0",
         "dompdf/dompdf": "^3.1",
         "endroid/qr-code": "^6.1",
-        "google/apiclient": "^2.19"
+        "google/apiclient": "^2.19",
+        "vlucas/phpdotenv": "^5.5",
+        "guzzlehttp/guzzle": "^7.8"
     }
 }

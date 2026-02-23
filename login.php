@@ -5,6 +5,13 @@ session_start();
 // Include the database connection file
 require 'includes/conn.php';
 
+use Dotenv\Dotenv;
+
+include './vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 // Initialize message variable
 $message = "";
 
@@ -28,12 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if a user with that email exists
     if (mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
-        
+
         // Verify the password: checks if the provided password matches the hash in the database
         // password_verify() handles the hashing algorithm automatically
         if (password_verify($password, $user['password'])) {
             // Password is correct!
-            
+
             // Store user details in the SESSION superglobal
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['email'] = $user['email'];
@@ -65,7 +72,7 @@ include 'includes/header.php';
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h1>Login</h1>
-            
+
             <?php if ($message): ?>
                 <div class="alert alert-danger"><?php echo $message; ?></div>
             <?php endif; ?>
@@ -86,6 +93,9 @@ include 'includes/header.php';
                     Sign in with Google
                 </a>
 
+                <a href="https://github.com/login/oauth/authorize?client_id=<?= $_ENV['GITHUB_CLIENT_ID'] ?>&scope=user:read" class="btn btn-success w-100 mt-2">
+                    Sign in With GitHub</a>
+
                 <div class="mt-3">
                     Not registered? <a href="index.php">Create an account</a>.
                 </div>
@@ -95,4 +105,5 @@ include 'includes/header.php';
 </div>
 
 </body>
+
 </html>
